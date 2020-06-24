@@ -27,7 +27,14 @@ export default {
             .then(res => this.elements = res) 
          }
      },
-}
+     watch:{
+         "$route.params.id" : function(){
+            console.log("listado de categorias ")
+            this.findAll();
+
+         }
+     }
+};
 </script>
 <style>
 .box {
