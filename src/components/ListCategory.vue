@@ -1,34 +1,24 @@
 <template>
     <div class="container">
-        ESTAS SON MIS CATEGORIAS 
-    
-        <div  v-for="e in elements" v-bind:key="e.id">
-            <router-link :to=" '/detail/' + e.id " >
-            <b-card
-            :title="e.title"
-            >
-
-            <b-card-text>
-                {{ e.description }}
-            </b-card-text>
-
-            </b-card>
-            </router-link>
-
-        </div>
+       <ListDefault :elements-list="elements" />
     </div>
 </template>
 
 <script>
+import ListDefault from '../partials/_ListDefault';
+
 export default {
+    components:{
+        ListDefault
+
+    },
     created(){
-       this.findAll()
+       this.findAll();
     },
      data(){
          return{           
              elements: [ ]
          };
-
      },
      methods: {
          findAll: function(){
